@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
   <head>
-    <title>My Starter Web App | Helps students learn how to use the Flask Python package.</title>
+    <title>Twitoff App</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   </head>
 
@@ -26,12 +26,12 @@
     <!-- see: https://getbootstrap.com/docs/4.0/components/navbar/ -->
     {% set nav_links = [
       ('/', 'prediction_form', 'Make Prediction'),
-      ('/books', 'books', 'Books'),
-      ('/books/new', 'new_book', 'New Book')
+      ('/tweets', 'tweets', 'Tweets'),
+      ('/tweets/new', 'new_tweets', 'New Tweets')
     ] -%}
     {% set active_page = active_page|default('index') -%}
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-      <a class="navbar-brand" href="/">My Web App</a>
+      <a class="navbar-brand" href="/">Twitoff App</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
