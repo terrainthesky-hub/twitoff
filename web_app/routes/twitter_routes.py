@@ -45,6 +45,7 @@ def fetch_user_data(screen_name=None):
 
     # TODO: explore using the zip() function maybe...
     counter = 0
+
     for status in statuses:
         print(status.full_text)
         print("----")
@@ -61,8 +62,7 @@ def fetch_user_data(screen_name=None):
         counter+=1
     db.session.commit()
 
-    return "OK"
-    #return render_template("user.html", user=db_user, tweets=statuses) # tweets=db_tweets
+    return render_template("users.html", users=User.query.all(), tweets=statuses) # tweets=db_tweets
 
 @twitter_routes.route("/users")
 def list_users_human_friendly():
@@ -99,6 +99,10 @@ def list_tweets_for_humans():
 def new_tweet():
     return render_template("new_tweets.html", users=User.query.all())
 
+@twitter_routes.route("/")
+def tweets_for_a_loop():
+    return render_template("prediction_form.html", users=User.query.all())
+
 @twitter_routes.route("/tweets/create", methods=["POST"])
 def create_book():
     print("FORM DATA:", dict(request.form))
@@ -111,3 +115,4 @@ def create_book():
     #})
     #flash(f"Book '{new_book.title}' created successfully!", "success")
     return redirect(f"/users/{new_tweet}/fetch")
+

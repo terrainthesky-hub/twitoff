@@ -9,6 +9,7 @@ from web_app.routes.home_routes import home_routes
 from web_app.routes.book_routes import book_routes
 from web_app.routes.twitter_routes import twitter_routes
 from web_app.routes.stats_routes import stats_routes
+from web_app.routes.app_routes import app_routes
 
 load_dotenv()
 
@@ -31,6 +32,7 @@ def create_app():
     app.register_blueprint(twitter_routes)
     app.register_blueprint(admin_routes)
     app.register_blueprint(stats_routes)
+    app.register_blueprint(app_routes)
 
     return app
 

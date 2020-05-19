@@ -1,23 +1,22 @@
 
 {% extends "bootstrap_layout.html" %}
 {% set active_page = "prediction_form" %}
-
 {% block content %}
+
 
 <div>
   <form action="/stats/predict" method="post">
     <select name="screen_name_a">
       {% for user in users %}
-      <option value="{{ user.name }}">{{ user.name }}</option>
+      <option value={{ user.screen_name }}>{{ user.screen_name }}</option>
       {% endfor %}
     </select>
     <select name="screen_name_b">
       {% for user in users %}
-      <option value="{{ user.name }}">{{ user.name }}</option>
+      <option value={{ user.screen_name }}>{{ user.screen_name }}</option>
       {% endfor %}
     </select>
     <input type="text" name="tweet_text" placeholder="Tweet text to predict">
-    <input type="submit" value="Compare Users">
     <button>Submit</button>
   </form>
 
