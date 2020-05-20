@@ -1,7 +1,7 @@
 # web_app/routes/twitter_routes.py
 
 from flask import Blueprint, jsonify, render_template, request, redirect
-
+from web_app.redirect import add_or_update_user
 from web_app.models import User, Tweet, db, parse_records
 from web_app.services.twitter_service import api_client
 from web_app.services.basilica_service import connection as basilica_connection
@@ -64,6 +64,10 @@ def fetch_user_data(screen_name=None):
 
     return render_template("users.html", users=User.query.all(), tweets=statuses) # tweets=db_tweets
 
+
+
+
+
 @twitter_routes.route("/users")
 def list_users_human_friendly():
     db_users = User.query.all()
@@ -114,5 +118,6 @@ def create_book():
     #    "book": dict(request.form)
     #})
     #flash(f"Book '{new_book.title}' created successfully!", "success")
-    return redirect(f"/users/{new_tweet}/fetch")
+    return redirect(f"/users/{new_tweet}")
+
 
